@@ -12,8 +12,9 @@ int main() {
 #define EXTERN
 #endif
 
+
 EXTERN EMSCRIPTEN_KEEPALIVE void myFunction(int argc, char ** argv) {
-    printf("MyFunction Called\n");
+    printf("MyFunction Called!\n");
 }
 
 
