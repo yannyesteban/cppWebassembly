@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+
+        var i = 0
+        function run() {
+
+            if (i++ <= 0) {
+                return
+            }
+            console.log("hello")
+
+            let x = Module.ccall(
+                "myFunction", null, null, null
+            );
+
+            console.log(x)
+            document.getElementById("t").innerHTML = x
+
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    hello <div id="t"></div>
+    <button type="button" id="q" >OK</button>
+
+    <script>
+        document.getElementById("q").addEventListener("click", () => {
+            
+            const result = Module.ccall(
+                "myFunction", // name of C function
+                null, // return type
+                null, // argument types
+                null, // arguments
+            );
+
+
+            const suma = Module.ccall(
+                "suma", // name of C function
+                "number", // return type
+                ["number", "number"], // argument types
+                [10,24], // arguments
+            );
+            document.getElementById("t").innerHTML = suma
+        });
+    </script>
+
+<script async type="text/javascript" src="wa.js"></script>
+</body>
+
+</html>
